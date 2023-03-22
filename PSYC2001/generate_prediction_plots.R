@@ -28,6 +28,14 @@ dev.off()
 # save this plot
 #dev.off()
 
+png(filename="prediction/estimation_wextendaxis.png", width = 600, height = 400)
+plot(x, y, col = y_color, xlab = "CO2 concentration (ppm)", ylab = "Global temperature", 
+     xlim = c(260, 475), ylim = c(ymin, ymax), pch=19, cex.axis = 1.5, cex.lab=1.5)
+
+# add line of best fit
+abline(lm(y ~ x), col = "black")
+dev.off()
+
 
 # create function to update plot and save each frame for gif
 create_frame <- function(x_max){
